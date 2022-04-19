@@ -48,6 +48,9 @@ gem "bootsnap", require: false
 # Tailwind CSS [https://tailwindcss.com]
 gem "tailwindcss-rails"
 
+# Devise for Authentication
+gem 'devise'
+
 group :production do
     gem "pg", "~> 1.1"
 end
