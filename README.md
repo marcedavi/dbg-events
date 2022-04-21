@@ -3,9 +3,9 @@
 Ruby on Rails university project.
 
 ## TODO
-- [x] Registrazione di utenti
-- [x] Registrazione di organizzatori
-- [x] Permettere ad organizzatori di creare eventi
+- [x] ~~Registrazione di utenti~~
+- [x] ~~Registrazione di organizzatori~~
+- [x] ~~Permettere ad organizzatori di creare eventi~~
 - [ ] Permettere agli utenti di ricercare eventi
 - [ ] Permettere agli utenti di registrarsi e deregistrarsi da eventi
 - [ ] Impedire ad utenti di registrarsi ad un evento se concomitante ad un altro ai quali sono già iscritti
