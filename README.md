@@ -3,9 +3,9 @@
 Ruby on Rails university project.
 
 ## TODO
-- [ ] Registrazione di utenti
-- [ ] Registrazione di organizzatori
-- [ ] Permettere ad organizzatori di creare eventi
+- [x] Registrazione di utenti
+- [x] Registrazione di organizzatori
+- [x] Permettere ad organizzatori di creare eventi
 - [ ] Permettere agli utenti di ricercare eventi
 - [ ] Permettere agli utenti di registrarsi e deregistrarsi da eventi
 - [ ] Impedire ad utenti di registrarsi ad un evento se concomitante ad un altro ai quali sono già iscritti
@@ -14,7 +14,6 @@ Ruby on Rails university project.
 - [ ] Possibilità da parte degli organizzatori di inviare messaggi (tramite notifica) a tutti gli iscritti ad un proprio evento
 - [ ] Possibilità degli organizzatori di gestire una blacklist per utenti la quale impedirà agli utenti bannati di iscriversi agli eventi da loro creati
 - [ ] Sistema di chat tra organizzatori ed utenti
-
 
 ## Ruby version
 

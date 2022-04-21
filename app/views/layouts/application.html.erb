@@ -9,10 +9,18 @@
 
         <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
         <%= javascript_importmap_tags %>
+
+        <!-- Mapbox -->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
     </head>
 
     <body>
         <main class="container mx-auto px-5">
+
+            <%= render "components/navbar" %>
+
             <p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>
             <%= yield %>

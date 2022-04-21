@@ -51,6 +51,9 @@ gem "tailwindcss-rails"
 # Devise for Authentication
 gem 'devise'
 
+# Geocoder for address <=> latitude/longitude translation
+gem 'geocoder'
+
 group :production do
     gem "pg", "~> 1.1"
 end
