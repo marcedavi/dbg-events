@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
     devise_for :users
     
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-    # Root path
     root "events#index"
     
     resources :events
+
+    post 'events/:id/join', to: 'events#join', as: 'join_event'
+    delete 'events/:id/leave', to: 'events#leave', as: 'leave_event'
 end

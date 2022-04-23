@@ -12,6 +12,10 @@ class Event < ApplicationRecord
     validates :state, presence: true
     validates :country, presence: true
 
+    def joined?(user)
+        !!self.participations.find_by(user_id: user.id)
+    end
+
     geocoded_by :address
     after_validation :geocode
 

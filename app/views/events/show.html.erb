@@ -11,3 +11,13 @@
 <p><%= @event.latitude %></p>
 <p><%= @event.longitude %></p>
 <p><%= @event.address %></p>
+
+<% if user_signed_in? %>
+    <% if @event.joined?(current_user) %>
+        <%= button_to "Leave", leave_event_path(@event), method: "delete" %>
+    <% else %>
+        <%= button_to "Join", join_event_path(@event), method: "post" %>
+    <% end %>
+<% else %>
+    <%= link_to "Log in", new_user_session_path %> to join this event.
+<% end %>

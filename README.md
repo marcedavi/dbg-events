@@ -7,7 +7,7 @@ Ruby on Rails university project.
 - [x] ~~Registrazione di organizzatori~~
 - [x] ~~Permettere ad organizzatori di creare eventi~~
 - [x] ~~Permettere agli utenti di ricercare eventi~~
-- [ ] Permettere agli utenti di registrarsi e deregistrarsi da eventi
+- [x] ~~Permettere agli utenti di registrarsi e deregistrarsi da eventi~~
 - [ ] Impedire ad utenti di registrarsi ad un evento se concomitante ad un altro ai quali sono già iscritti
 - [ ] Permettere agli organizzatori di consultare la lista dei partecipanti ai propri eventi ed eventualmente rimuovere utenti iscritti indesiderati dai propri eventi
 - [ ] Sistema di notifiche per utenti e organizzatori
