@@ -1,7 +1,11 @@
 class EventsController < ApplicationController
     def index
         @title = "Events"
-        @events = Event.all
+        if params[:query].present?
+            @events = Event.with_name_like(params[:query])
+        else
+            @events = Event.all
+        end
     end
 
     def show
@@ -22,7 +26,7 @@ class EventsController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
-    
+
     private
         def event_params
             params.require(:event).permit(:name, :start_date, :end_date, :max_participants, :street, :city, :state, :country)

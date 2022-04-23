@@ -1,6 +1,11 @@
 <div>
-  <h1 class="font-bold text-4xl"><%= @title %></h1>
+    <h1 class="font-bold text-4xl"><%= @title %></h1>
   
+    <%= form_with url: root_path, method: :get do |form| %>
+        <%= form.text_field :query %>
+        <%= form.submit "Search" %>
+    <% end %>
+
     <ul>
         <% @events.each do |event| %>
             <li>

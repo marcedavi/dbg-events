@@ -18,4 +18,7 @@ class Event < ApplicationRecord
     def address
         [street, city, state, country].compact.join(', ')
     end
+
+    scope :with_name_like, ->(query) { where("name LIKE ?","%#{query}%") }
+
 end
