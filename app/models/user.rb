@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
     has_many :created_events, inverse_of: :organizer, foreign_key: :organizer_id, class_name: "Event"
     has_many :participations
-    has_many :joined_events, through: :participations, class_name: "Event"
+    has_many :joined_events, through: :participations, :source => :event
 end

@@ -14,9 +14,15 @@
 
 <% if user_signed_in? %>
     <% if @event.joined?(current_user) %>
-        <%= button_to "Leave", leave_event_path(@event), method: "delete" %>
+        <%= button_to "Leave", destroy_participation_path(@event), method: "delete" %>
     <% else %>
-        <%= button_to "Join", join_event_path(@event), method: "post" %>
+        <%= button_to "Join", create_participation_path(@event), method: "post" %>
+    <% end %>
+
+    <% if @participation %>
+        <% @participation.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+        <% end %>
     <% end %>
 <% else %>
     <%= link_to "Log in", new_user_session_path %> to join this event.

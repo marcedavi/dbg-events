@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     
     resources :events
 
-    post 'events/:id/join', to: 'events#join', as: 'join_event'
-    delete 'events/:id/leave', to: 'events#leave', as: 'leave_event'
+    post 'participations/:event_id/create', to: 'participations#create', as: 'create_participation'
+    delete 'participations/:event_id/destroy', to: 'participations#destroy', as: 'destroy_participation'
 end
