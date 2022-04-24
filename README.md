@@ -15,8 +15,6 @@ Ruby on Rails university project.
 - [ ] Possibilità degli organizzatori di gestire una blacklist per utenti la quale impedirà agli utenti bannati di iscriversi agli eventi da loro creati
 - [ ] Sistema di chat tra organizzatori ed utenti
 
-* Main reason why not to use helpers to clean up views: Helpers are included into all views, so we have to pay attention to naming conflicts and unintended behaviour.
-
 ## Ruby version
 
 Ruby `3.1.1`
