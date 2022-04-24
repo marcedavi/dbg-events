@@ -3,8 +3,13 @@ Rails.application.routes.draw do
     
     root "events#index"
     
-    resources :events
+    resources :events do
+        member do
+            resources :participations, param: :participation_id, only: [:index, :create, :destroy, :update]
+        end
+    end
 
-    post 'participations/:event_id/create', to: 'participations#create', as: 'create_participation'
-    delete 'participations/:event_id/destroy', to: 'participations#destroy', as: 'destroy_participation'
+    # Users
+    get 'created-events', to: 'users#created_events', as: 'created_events'
+    get 'joined-events', to: 'users#joined_events', as: 'joined_events'
 end

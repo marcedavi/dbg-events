@@ -1,17 +1,39 @@
 class ParticipationsController < ApplicationController
 
-    def create
-        @event = Event.find(params[:event_id])
-        
-        @participation = Participation.create(user: current_user, event: @event)
-        flash[:notice] = @participation.errors.full_messages.join(", ") unless @participation.valid?
+  def index
+    @event = Event.find(params[:id])
+  end
 
-        redirect_to @event
-    end
+  def create
+    @participation = Participation.new(user: current_user, event_id: params[:id])
 
-    def destroy
-        @event = Event.find(params[:event_id])
-        Participation.where(user: current_user, event: @event).destroy_all
-        redirect_to @event
+    if @participation.save
+      redirect_to @participation.event
+    else
+      @event = @participation.event
+      render "events/show" , status: :unprocessable_entity
     end
+  end
+
+  def update
+    @participation = Participation.find(params[:participation_id])
+
+    if @participation.update(is_banned: !@participation.is_banned)
+      redirect_to @participation.event
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @participation = Participation.find(params[:participation_id]).destroy
+    redirect_to @participation.event
+  end
+
+  def remove
+    @participation = Participation.find(params[:participation_id])
+    @participation.is_banned = true
+    @participation.save
+    redirect_to participants_path(@participation.event)
+  end
 end

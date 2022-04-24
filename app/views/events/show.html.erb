@@ -13,17 +13,17 @@
 <p><%= @event.address %></p>
 
 <% if user_signed_in? %>
-    <% if @event.joined?(current_user) %>
-        <%= button_to "Leave", destroy_participation_path(@event), method: "delete" %>
-    <% else %>
-        <%= button_to "Join", create_participation_path(@event), method: "post" %>
-    <% end %>
+  <% if @event.joined?(current_user) %>
+    <%= button_to "Leave", participation_path(@event, @participation), method: "delete" %>
+  <% else %>
+    <%= button_to "Join", participations_path(@event), method: "post" %>
+  <% end %>
 
-    <% if @participation %>
-        <% @participation.errors.full_messages.each do |message| %>
-            <div><%= message %></div>
-        <% end %>
+  <% if @participation %>
+    <% @participation.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
     <% end %>
+  <% end %>
 <% else %>
-    <%= link_to "Log in", new_user_session_path %> to join this event.
+  <%= link_to "Log in", new_user_session_path %> to join this event.
 <% end %>

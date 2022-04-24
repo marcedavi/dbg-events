@@ -1,18 +1,26 @@
 <div>
-    <h1 class="font-bold text-4xl"><%= @title %></h1>
-  
-    <%= form_with url: root_path, method: :get do |form| %>
-        <%= form.text_field :query %>
-        <%= form.submit "Search" %>
+  <h1 class="font-bold text-4xl"><%= @title %></h1>
+
+  <% if user_signed_in? %>
+    <% if current_user.is_organizer? %>
+      <%= link_to "Created Events", created_events_path %>
     <% end %>
+  <% end %>
+  
+  <%= link_to "Joined Events", joined_events_path %>
 
-    <ul>
-        <% @events.each do |event| %>
-            <li>
-                <%= link_to event.name, event %>
-            </li>
-        <% end %>
-    </ul>
+  <%= form_with url: root_path, method: :get do |form| %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
 
-    <%= link_to "New Event", new_event_path %>
+  <ul>
+    <% @events.each do |event| %>
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "New Event", new_event_path %>
 </div>

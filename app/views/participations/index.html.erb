@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <ul>
+    <% @event.participations.each do |participation| %>
+      <% if !participation.is_banned? %>
+        <li>
+          <%= participation.user.email %>
+          <% if current_user.is_organizer? %>
+            <%= button_to "Remove", participation_path(@event, participation), method: "patch" %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
