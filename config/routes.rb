@@ -3,10 +3,14 @@ Rails.application.routes.draw do
     
     root "events#index"
     
-    resources :events do
-        member do
-            resources :participations, param: :participation_id, only: [:index, :create, :destroy, :update]
-        end
+    # Errors
+    match "/403", to: "errors#forbidden", via: :all
+    match "/404", to: "errors#not_found", via: :all
+    match "/500", to: "errors#internal_server_error", via: :all
+
+    # Events / Participations
+    resources :events, shallow: true do
+      resources :participations, only: [:index, :create, :update, :destroy]
     end
 
     # Users

@@ -51,6 +51,9 @@ gem "tailwindcss-rails"
 # Devise for Authentication
 gem 'devise'
 
+# Pundit for Authorization
+gem 'pundit'
+
 # Geocoder for address <=> latitude/longitude translation
 gem 'geocoder'
 

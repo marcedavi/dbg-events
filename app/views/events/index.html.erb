@@ -1,26 +1,28 @@
-<div>
-  <h1 class="font-bold text-4xl"><%= @title %></h1>
 
-  <% if user_signed_in? %>
-    <% if current_user.is_organizer? %>
-      <%= link_to "Created Events", created_events_path %>
-    <% end %>
-  <% end %>
-  
-  <%= link_to "Joined Events", joined_events_path %>
 
+<section class="w-full flex justify-center items-center h-64">
   <%= form_with url: root_path, method: :get do |form| %>
     <%= form.text_field :query %>
     <%= form.submit "Search" %>
   <% end %>
+</section>
 
-  <ul>
+<section class="py-8 flex flex-col">
+
+  <div class="flex justify-between">
+    <h2>Events</h2>
+  </div>
+
+  <div class="events-grid">
     <% @events.each do |event| %>
-      <li>
-        <%= link_to event.name, event %>
-      </li>
+      <%= link_to event do %>
+        <div class="event-card">
+          <img src="https://picsum.photos/400">
+          <div>
+            <h3><%= event.name %></h3>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
-
-  <%= link_to "New Event", new_event_path %>
-</div>
+  </div>
+</section>

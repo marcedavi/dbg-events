@@ -1,11 +1,15 @@
 class ParticipationsController < ApplicationController
+  before_action :authenticate_user!
+  after_action :verify_authorized, except: [:create]
 
   def index
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
+
+    authorize @event, policy_class: ParticipationPolicy
   end
 
   def create
-    @participation = Participation.new(user: current_user, event_id: params[:id])
+    @participation = Participation.new(user: current_user, event_id: params[:event_id])
 
     if @participation.save
       redirect_to @participation.event
@@ -16,7 +20,9 @@ class ParticipationsController < ApplicationController
   end
 
   def update
-    @participation = Participation.find(params[:participation_id])
+    @participation = Participation.find(params[:id])
+
+    authorize @participation
 
     if @participation.update(is_banned: !@participation.is_banned)
       redirect_to @participation.event
@@ -26,14 +32,11 @@ class ParticipationsController < ApplicationController
   end
 
   def destroy
-    @participation = Participation.find(params[:participation_id]).destroy
+    @participation = Participation.find(params[:id]).destroy
+    
+    authorize @participation
+
     redirect_to @participation.event
   end
 
-  def remove
-    @participation = Participation.find(params[:participation_id])
-    @participation.is_banned = true
-    @participation.save
-    redirect_to participants_path(@participation.event)
-  end
 end

@@ -1,10 +1,45 @@
-<div class="flex">
-  <% if user_signed_in? %>
-    Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'Edit profile', edit_user_registration_path %> |
-    <%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> |
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
-</div>
+<nav class="navbar">
+
+  <label for="menu-toggle" class="cursor-pointer md:hidden block">
+    <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+    </svg>
+  </label>
+  <input class="hidden" type="checkbox" id="menu-toggle" />
+
+  <div class="navbar-menu-left">
+    <ul>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-logo">
+    <a href="/">DBGEVENTS</a>
+  </div>
+
+  <div class="navbar-menu-right">
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <button>
+          <span><%= current_user.email %></span>
+          <svg viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+        </button>
+        <ul>
+          <li><%= link_to "Joined Events", joined_events_path %></li>
+          <% if current_user.is_organizer? %>
+            <li><%= link_to "New Event", new_event_path %></li>
+            <li><%= link_to "Created Events", created_events_path %></li>
+          <% end %> 
+          <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, "data-turbo-method": :delete %></li>
+        </ul>
+      </div>
+    <% else %>
+      <ul>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

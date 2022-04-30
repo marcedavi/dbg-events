@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  after_action :verify_authorized, except: [:index, :show]
+
   def index
     @title = "Events"
     if params[:query].present?
@@ -16,20 +19,20 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+
+    authorize @event
   end
   
   def create
     @event = current_user.created_events.new(event_params)
+
+    authorize @event
 
     if @event.save
       redirect_to @event
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def participants
-    @event = Event.find(params[:id])
   end
 
   private

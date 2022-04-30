@@ -14,9 +14,9 @@
 
 <% if user_signed_in? %>
   <% if @event.joined?(current_user) %>
-    <%= button_to "Leave", participation_path(@event, @participation), method: "delete" %>
+    <%= button_to "Leave", participation_path(@participation), method: "delete" %>
   <% else %>
-    <%= button_to "Join", participations_path(@event), method: "post" %>
+    <%= button_to "Join", event_participations_path(@event), method: "post" %>
   <% end %>
 
   <% if @participation %>
