@@ -1,6 +1,32 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   after_action :verify_authorized, only: [:created_events]
+
+  def blacklist
+  end
+
+  def add_to_blacklist
+    user = User.find(params[:id])
+
+    Participation.of(user).by_organizer(current_user).each do |participation|
+      participation.update(is_banned: true)
+    end
+
+    current_user.blacklisted_users << user
+    current_user.save
+  end
+
+  def remove_from_blacklist
+    user = User.find(params[:id])
+
+    Participation.of(user).by_organizer(current_user).each do |participation|
+      participation.update(is_banned: false)
+    end
+
+    current_user.blacklisted_users.delete(user)
+    current_user.save
+  end
+
   def created_events
     @title = "Created Events"
     @events = current_user.created_events

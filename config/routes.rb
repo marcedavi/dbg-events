@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   get 'created-events', to: 'users#created_events', as: 'created_events'
   get 'joined-events', to: 'users#joined_events', as: 'joined_events'
 
+  get 'blacklist', to: 'users#blacklist', as: 'blacklist'
+  post 'blacklist/:id', to: 'users#add_to_blacklist', as: 'add_to_blacklist'
+  delete 'blacklist/:id', to: 'users#remove_from_blacklist', as: 'remove_from_blacklist'
+
   # Chat
   namespace :chat do
     resources :rooms, shallow: true do

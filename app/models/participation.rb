@@ -5,6 +5,11 @@ class Participation < ApplicationRecord
   validates :user_id, uniqueness: { scope: :event_id }
   validate :validate_overlapping_event
 
+  scope :of, -> (user) { where(user: user) }
+  scope :by_organizer, -> (organizer) {
+    joins(:event).where(events: { organizer: organizer })
+  }
+
   def validate_overlapping_event
     if user.joined_events.where.not(id: event.id).overlapping(event.start_date, event.end_date).any?
       errors.add(:overlap_error, "Event overlaps with another event")

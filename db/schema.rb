@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_165729) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_165829) do
+  create_table "blacklists", id: false, force: :cascade do |t|
+    t.integer "organizer_id"
+    t.integer "user_id"
+    t.index ["organizer_id"], name: "index_blacklists_on_organizer_id"
+    t.index ["user_id"], name: "index_blacklists_on_user_id"
+  end
+
   create_table "chat_messages", force: :cascade do |t|
     t.integer "chat_room_id"
     t.integer "user_id"

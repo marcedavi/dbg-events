@@ -13,4 +13,7 @@ class User < ApplicationRecord
   has_many :chat_rooms, through: :chat_participations, :source => :chat_room
   
   has_many :notifications, as: :recipient
+
+  has_and_belongs_to_many :blacklisted_users, class_name: "User", foreign_key: :organizer_id, join_table: :blacklists
+  has_and_belongs_to_many :blacklisted_by, class_name: "User", foreign_key: :user_id, join_table: :blacklists
 end

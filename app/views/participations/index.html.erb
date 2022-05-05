@@ -4,6 +4,7 @@
       <%= participation.user.email %>
       <% if !participation.is_banned? %>
         <%= button_to "Remove", participation_path(participation), method: "patch" %>
+        <%= button_to "Blacklist", add_to_blacklist_path(participation.user), method: "post" %>
       <% end %>
     </li>
   <% end %>
