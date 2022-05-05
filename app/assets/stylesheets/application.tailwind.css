@@ -110,3 +110,16 @@ form {
 .event-card h3 {
     @apply text-xl text-white;
 }
+
+/* Chat */
+.message {
+    @apply mb-4;
+}
+
+.message > div {
+  @apply inline-block bg-gray-300 rounded-full p-2 px-6 text-gray-700;
+}
+
+.message > span {
+  @apply block pl-4 text-gray-500 text-sm;
+}

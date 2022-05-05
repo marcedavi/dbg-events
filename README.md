@@ -13,7 +13,7 @@ Ruby on Rails university project.
 - [ ] Sistema di notifiche per utenti e organizzatori
 - [ ] Possibilità da parte degli organizzatori di inviare messaggi (tramite notifica) a tutti gli iscritti ad un proprio evento
 - [ ] Possibilità degli organizzatori di gestire una blacklist per utenti la quale impedirà agli utenti bannati di iscriversi agli eventi da loro creati
-- [ ] Sistema di chat tra organizzatori ed utenti
+- [x] ~~Sistema di chat tra organizzatori ed utenti~~
 
 ## Ruby version
 

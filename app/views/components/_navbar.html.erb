@@ -20,12 +20,19 @@
 
   <div class="navbar-menu-right">
     <% if user_signed_in? %>
+      <div>
+        <% unless current_page?(notifications_path) %>
+          <%= turbo_stream_from current_user, :notifications %>
+          <%= turbo_frame_tag "notifications", src: notifications_path %>
+        <% end %>
+      </div>
       <div class="dropdown">
         <button>
           <span><%= current_user.email %></span>
           <svg viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
         </button>
         <ul>
+          <li><%= link_to "Messages", chat_rooms_path %></li>
           <li><%= link_to "Joined Events", joined_events_path %></li>
           <% if current_user.is_organizer? %>
             <li><%= link_to "New Event", new_event_path %></li>
