@@ -9,9 +9,14 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @participation = Participation.new(user: current_user, event_id: params[:event_id])
+    event = Event.find(params[:event_id])
+    @participation = Participation.new(user: current_user, event: event)
 
     if @participation.save
+      if event.participants.count == event.max_participants
+        MaxParticipantsNotification.with(event: event).deliver(event.organizer)
+      end
+
       redirect_to @participation.event
     else
       @event = @participation.event

@@ -1,15 +1,8 @@
 <li>
   <div>
-    <p class="text-gray-700">
+    <p>
       <%= notification.to_notification.message %>
     </p>
-    <div class="flex justify-between mt-1 text-gray-500 text-sm space-x-4">
-      <p>
-        Received on <%= notification.created_at.to_date %>
-      </p>
-      <p>
-        Status: <%= notification.read? ? "Read" : "Unread" %>
-      </p>
-    </div>
+    <span><%= notification.created_at.strftime("%e %b") %></span>
   </div>
 </li>

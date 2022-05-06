@@ -66,28 +66,41 @@ form {
     @apply fill-current h-4 w-4;
 }
 
-.dropdown > ul {
-  @apply text-right absolute hidden pt-1 right-0;
+.dropdown ul {
+  @apply text-right absolute hidden pt-1 right-0 z-50 bg-white;
 }
 
-.dropdown:hover > ul {
+.dropdown:hover ul {
   @apply block;
 }
 
-.dropdown > ul > li {
+.dropdown ul > li {
   @apply border-x;
 }
 
-.dropdown > ul > li:first-child {
+.dropdown ul > li:first-child {
   @apply border-t;
 }
 
-.dropdown > ul > li:last-child {
+.dropdown ul > li:last-child {
   @apply border-b;
 }
 
-.dropdown > ul > li > a {
+.dropdown ul > li > a {
   @apply link whitespace-nowrap;
+}
+
+.dropdown ul > li > div {
+  @apply w-64 text-sm flex justify-between p-2;
+}
+
+.dropdown ul > li > p {
+  @apply flex-shrink;
+}
+
+/* Notifications */
+#notifications-list {
+  @apply text-left;
 }
 
 /* Events Grid */
@@ -122,4 +135,30 @@ form {
 
 .message > span {
   @apply block pl-4 text-gray-500 text-sm;
+}
+
+/* Events page */
+
+.event-image {
+  @apply w-full h-64 relative;
+}
+
+.event-image > img {
+  @apply w-full h-full object-cover object-center;
+}
+
+.event-title {
+  @apply w-full text-3xl font-semibold my-6;
+}
+
+.event-info {
+  @apply w-full flex justify-between;
+}
+
+.event-details {
+  @apply w-96 flex flex-col ml-12 border p-4 justify-between;
+}
+
+.event-details > div {
+  @apply flex flex-col;
 }
