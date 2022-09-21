@@ -1,10 +1,12 @@
 <h1><%= @title %></h1>
 
-<ul>
+<div class="list">
   <% @events.each do |event| %>
-    <li>
+    <div>
       <%= link_to event.name, event %>
-      <%= link_to "Participants", event_participations_path(event) %>
-    </li>
+      <div>
+        <%= link_to "Participants", event_participations_path(event), class: "button" %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

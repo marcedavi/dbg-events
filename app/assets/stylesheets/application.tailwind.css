@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 /* Typography */
+h1 {
+  @apply text-3xl;
+}
+
 h2 {
-    @apply text-2xl;
+  @apply text-2xl;
 }
 
 /* Base */
@@ -47,6 +51,10 @@ form {
 
 .navbar-menu-left > ul > li > a, .navbar-menu-right > ul > li > a {
   @apply inline-block link;
+}
+
+.navbar-menu-right > div {
+  @apply pl-2;
 }
 
 /* Dropdown */
@@ -101,6 +109,23 @@ form {
 /* Notifications */
 #notifications-list {
   @apply text-left;
+}
+
+/* Search */
+.search {
+  @apply w-full flex justify-center items-center h-64;
+}
+
+.search > form {
+  @apply flex flex-row items-center;
+}
+
+.search > form > input[type="text"] {
+  @apply p-0 h-10;
+}
+
+.search > form > input[type="submit"] {
+  @apply bg-black text-white m-0 h-10 px-2;
 }
 
 /* Events Grid */
@@ -161,4 +186,17 @@ form {
 
 .event-details > div {
   @apply flex flex-col;
+}
+
+/* List */
+.list {
+  @apply flex flex-col my-4 space-y-2;
+}
+
+.list > div {
+  @apply w-full flex flex-row justify-between border border-black p-4 items-center;
+}
+
+.list > div > div {
+  @apply flex;
 }

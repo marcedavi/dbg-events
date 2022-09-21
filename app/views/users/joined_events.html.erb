@@ -1,9 +1,14 @@
 <h1><%= @title %></h1>
 
-<ul>
+<div class="events-grid">
   <% @events.each do |event| %>
-    <li>
-      <%= link_to event.name, event %>
-    </li>
+    <%= link_to event do %>
+      <div class="event-card">
+        <img src="https://picsum.photos/400">
+        <div>
+          <h3><%= event.name %></h3>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
