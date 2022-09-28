@@ -3,6 +3,10 @@ class ParticipationPolicy < ApplicationPolicy
     record.organizer == user
   end
 
+  def update?
+    true
+  end
+
   def destroy?
     record.user == user
   end

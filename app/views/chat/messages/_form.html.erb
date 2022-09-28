@@ -1,11 +1,4 @@
-<%= form_with(model: [@room, Chat::Message.new]) do |f| %>
-  <%= f.text_field :content, class: "flex-grow block outline-none py-4 px-4 bg-transparent" %>
-  <%= f.submit class: "button rounded-full m-2" %>
+<%= form_with(model: [@room, Chat::Message.new], class: "flex flex-row") do |f| %>
+  <%= f.text_field :content, class: "flex-grow block outline-none py-4 px-4" %>
+  <%= f.submit class: "button rounded-r-full m-2", "data-action": "click->chat#scroll" %>
 <% end %>
-
-<%# <input type="text" name="message" class="flex-grow block outline-none py-4 px-4 bg-transparent" rows="1" placeholder="Type a message..." autofocus /> %>
-<%# <button class="button rounded-full m-2">
-  <span class="inline-block align-text-bottom">
-    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M5 13l4 4L19 7"></path></svg>
-  </span>
-</button> %>

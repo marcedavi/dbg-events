@@ -13,11 +13,15 @@ h2 {
 
 /* Base */
 form {
-    @apply flex flex-col space-y-8;
+  @apply flex flex-col space-y-8;
 }
 
 .button {
-    @apply border py-2 px-4;
+  @apply border py-2 px-4;
+}
+
+.button_to > button{
+  @apply mt-0 border py-2 px-4 !important;
 }
 
 .link {
@@ -150,6 +154,18 @@ form {
 }
 
 /* Chat */
+.chat {
+  @apply w-full flex flex-col mt-8;
+}
+
+.chat > h1 {
+  @apply text-xl py-1 mb-8 border-b-2 border-gray-200;
+}
+
+#messages-list {
+  @apply flex flex-col overflow-y-scroll h-96;
+}
+
 .message {
     @apply mb-4;
 }

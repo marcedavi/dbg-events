@@ -30,7 +30,7 @@ class ParticipationsController < ApplicationController
     authorize @participation
 
     if @participation.update(is_banned: !@participation.is_banned)
-      redirect_to @participation.event
+      redirect_to event_participations_path(@participation.event)
     else
       render :index, status: :unprocessable_entity
     end
