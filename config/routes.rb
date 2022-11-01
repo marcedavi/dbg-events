@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resources :participations, only: [:index, :create, :update, :destroy]
   end
 
+  post 'events/notify', to: 'participations#notify', as: 'notify_participants'
+
   # Users
   get 'created-events', to: 'users#created_events', as: 'created_events'
   get 'joined-events', to: 'users#joined_events', as: 'joined_events'

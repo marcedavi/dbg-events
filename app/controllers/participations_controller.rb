@@ -44,4 +44,12 @@ class ParticipationsController < ApplicationController
     redirect_to @participation.event
   end
 
+  def notify
+    event = Event.find(params[:event_id])
+
+    authorize event
+
+    ParticipantsNotification.with(event: event, content: params[:content]).deliver(event.participants)
+  end
+
 end

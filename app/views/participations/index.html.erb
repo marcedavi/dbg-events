@@ -1,3 +1,11 @@
+<div>
+  <%= form_with url: notify_participants_path, class: "flex flex-row" do |f| %>
+    <%= f.text_field :event_id, value: @event.id, class: "hidden" %>
+    <%= f.text_field :content, class: "flex-grow block outline-none py-4 px-4" %>
+    <%= f.submit class: "button rounded-r-full m-2" %>
+  <% end %>
+</div>
+
 <div class="list">
   <% @event.participations.each do |participation| %>
     <div>

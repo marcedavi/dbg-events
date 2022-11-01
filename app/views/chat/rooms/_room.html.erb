@@ -1,1 +1,1 @@
-<div><%= link_to room.id, room %></div>
+<div><%= link_to room.participants.reject { |p| p.id == current_user.id }.first.email, room %></div>

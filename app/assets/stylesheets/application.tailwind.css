@@ -179,7 +179,6 @@ form {
 }
 
 /* Events page */
-
 .event-image {
   @apply w-full h-64 relative;
 }

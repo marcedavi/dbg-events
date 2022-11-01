@@ -10,8 +10,8 @@ Ruby on Rails university project.
 - [x] ~~Permettere agli utenti di registrarsi e deregistrarsi da eventi~~
 - [x] ~~Impedire ad utenti di registrarsi ad un evento se concomitante ad un altro ai quali sono già iscritti~~
 - [x] ~~Permettere agli organizzatori di consultare la lista dei partecipanti ai propri eventi ed eventualmente rimuovere utenti iscritti indesiderati dai propri eventi~~
-- [ ] Sistema di notifiche per utenti e organizzatori
-- [ ] Possibilità da parte degli organizzatori di inviare messaggi (tramite notifica) a tutti gli iscritti ad un proprio evento
+- [x] ~~Sistema di notifiche per utenti e organizzatori~~
+- [x] ~~Possibilità da parte degli organizzatori di inviare messaggi (tramite notifica) a tutti gli iscritti ad un proprio evento~~
 - [x] ~~Possibilità degli organizzatori di gestire una blacklist per utenti la quale impedirà agli utenti bannati di iscriversi agli eventi da loro creati~~
 - [x] ~~Sistema di chat tra organizzatori ed utenti~~
 
