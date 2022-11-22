@@ -6,4 +6,8 @@ class EventPolicy < ApplicationPolicy
   def notify?
     record.organizer == user
   end
+
+  def destroy?
+    record.organizer == user
+  end
 end

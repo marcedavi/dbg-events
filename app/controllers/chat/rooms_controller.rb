@@ -1,7 +1,7 @@
 class Chat::RoomsController < ApplicationController
   
   def index
-    @rooms = Chat::Room.by_participants(current_user)
+    @rooms = Chat::Room.by_participant(current_user)
   end
 
   def show
@@ -10,7 +10,9 @@ class Chat::RoomsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-    @room = Chat::Room.by_participants([current_user, user]).first
+
+    @room = Chat::Room.by_participants(current_user, user).first
+
     if @room.nil?
       @room = Chat::Room.create
       @room.participants << current_user

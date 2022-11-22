@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :organizer, foreign_key: :organizer_id, class_name: "User"
   has_many :participations
   has_many :participants, through: :participations, :source => :user
+  has_one_attached :image
 
   geocoded_by :address
   after_validation :geocode
@@ -19,12 +20,20 @@ class Event < ApplicationRecord
     !!self.participations.find_by(user_id: user.id)
   end
 
+  def is_banned?(user)
+    !!self.participations.find_by(user_id: user.id).is_banned
+  end
+
   def address
     [street, city, state, country].compact.join(', ')
   end
 
   scope :with_name_like, -> query { 
     where("name LIKE ?","%#{query}%")
+  }
+
+  scope :near_city, -> city {
+    near(city + ", Italy", 20, units: :km)
   }
 
   scope :overlapping, -> start_date, end_date {

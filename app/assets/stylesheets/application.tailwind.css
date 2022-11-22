@@ -45,6 +45,10 @@ form {
     @apply hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1;
 }
 
+.navbar-menu-left > img {
+  @apply h-16;
+}
+
 .navbar-menu-right {
     @apply order-2 md:order-3 flex items-center;
 }
@@ -125,7 +129,11 @@ form {
 }
 
 .search > form > input[type="text"] {
-  @apply p-0 h-10;
+  @apply p-0 pl-2 h-10 m-0;
+}
+
+.search > form > input[type="text"]:nth-child(2) {
+  @apply w-32;
 }
 
 .search > form > input[type="submit"] {

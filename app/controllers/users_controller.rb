@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 
     current_user.blacklisted_users << user
     current_user.save
+
+    redirect_to blacklist_url
   end
 
   def remove_from_blacklist
@@ -25,6 +27,8 @@ class UsersController < ApplicationController
 
     current_user.blacklisted_users.delete(user)
     current_user.save
+
+    redirect_to blacklist_url
   end
 
   def created_events

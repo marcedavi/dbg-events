@@ -6,6 +6,7 @@
       <%= link_to event.name, event %>
       <div>
         <%= link_to "Participants", event_participations_path(event), class: "button" %>
+        <%= button_to "Delete", event_path(event), method: "delete", class: "button" %>
       </div>
     </div>
   <% end %>

@@ -18,7 +18,7 @@
       <% else %>
         <div>
           <%= button_to "Unban", participation_path(participation), method: "patch" %>
-          <%= button_to "Blacklist", add_to_blacklist_path(participation.user), method: "post" %>
+          <%= button_to "Remove from blacklist", add_to_blacklist_path(participation.user), method: "post" %>
         </div>
       <% end %>
     </div>
