@@ -2,7 +2,6 @@ class Event < ApplicationRecord
   belongs_to :organizer, foreign_key: :organizer_id, class_name: "User"
   has_many :participations
   has_many :participants, through: :participations, :source => :user
-  has_one_attached :image
 
   geocoded_by :address
   after_validation :geocode

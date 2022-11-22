@@ -45,7 +45,7 @@ form {
     @apply hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1;
 }
 
-.navbar-menu-left > img {
+.navbar-menu-left img, .navbar-menu-left > a {
   @apply h-16;
 }
 

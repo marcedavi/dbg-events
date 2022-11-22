@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_151042) do
     t.decimal "longitude", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image", default: "f", null: false
   end
 
   create_table "notifications", force: :cascade do |t|

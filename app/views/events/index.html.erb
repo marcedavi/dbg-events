@@ -16,7 +16,7 @@
     <% @events.each do |event| %>
       <%= link_to event do %>
         <div class="event-card">
-          <img src="https://picsum.photos/400">
+          <img src="<%= event.image %>">
           <div>
             <h3><%= event.name %></h3>
           </div>

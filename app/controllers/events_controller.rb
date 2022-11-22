@@ -19,7 +19,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participation = @event.participations.find_by(user_id: current_user.id)
-    
     room = Chat::Room.by_participants(current_user, @event.organizer).first
     if room.nil?
       @room_id = -1
@@ -38,7 +37,6 @@ class EventsController < ApplicationController
   
   def create
     @event = current_user.created_events.new(event_params)
-    @event.image.attach(params[:image])
 
     authorize @event
 
