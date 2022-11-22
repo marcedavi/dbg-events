@@ -18,14 +18,19 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @participation = @event.participations.find_by(user_id: current_user.id)
-    room = Chat::Room.by_participants(current_user, @event.organizer).first
-    if room.nil?
-      @room_id = -1
-    else
-      @room_id = room.id
+    
+    if current_user
+      @participation = @event.participations.find_by(user_id: current_user.id)
+    
+      room = Chat::Room.by_participants(current_user, @event.organizer).first
+    
+      if room.nil?
+        @room_id = -1
+      else
+        @room_id = room.id
+      end
     end
-
+    
     @title = @event.name
   end
 
