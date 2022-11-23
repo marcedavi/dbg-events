@@ -18,6 +18,6 @@ class User < ApplicationRecord
   has_and_belongs_to_many :blacklisted_by, class_name: "User", foreign_key: :user_id, join_table: :blacklists
 
   def is_blacklisted?(organizer)
-    User.joins(:blacklisted_by).where(organizer_id: [organizer.id], user_id: self.id)
+    User.joins(:blacklisted_by).where(id: self.id, blacklists: {organizer_id: organizer.id}).any?
   end
 end
