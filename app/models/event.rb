@@ -32,7 +32,7 @@ class Event < ApplicationRecord
   }
 
   scope :near_city, -> city {
-    near(city + ", Italy", 20, units: :km)
+    near(city + " ", 20, units: :km)
   }
 
   scope :overlapping, -> start_date, end_date {
